@@ -72,7 +72,7 @@
     background: #747474;
 }
 
-.banner_box > div > a:hover {
+.banner_box_button_hover {
     background: none;
 }
 
