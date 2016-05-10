@@ -1,0 +1,455 @@
+* {
+    /*border: solid 1px;*/
+}
+
+._box {
+    width: 1000px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    text-align: center;
+    position: relative;
+}
+
+/* banner
+-------------------------------------------------------------------------------*/
+.banner {
+    width: 100%;
+    height: 570px;
+
+    background-image: url("../images/banner_back.jpg");
+    background-size: 135%;
+    background-position: top;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.banner_box > img {
+    margin-top: 90px;
+    margin-bottom: 5px;
+
+}
+
+/* 左右箭头 */
+.banner:hover #banner_box_right,
+.banner:hover #banner_box_left {
+    display: inline-block;
+}
+
+#banner_box_right,
+#banner_box_left {
+    width: 23px;
+    height: 37px;
+
+    display: none;
+    position: absolute;
+    top: 230px;
+
+}
+
+#banner_box_left {
+    background-image: url(../images/banner_left.png);
+    left: -40px;
+}
+
+#banner_box_right {
+    background-image: url(../images/banner_right.png);
+    right: -40px;
+}
+
+/* 圆点 */
+.banner_box > div > a {
+    width: 12px;
+    height: 12px;
+
+    margin-right: 7px;
+    margin-left: 7px;
+    border: solid 2px #747474;
+    border-radius: 7px;
+
+    display: inline-block;
+    background: #747474;
+}
+
+.banner_box > div > a:hover {
+    background: none;
+}
+
+/* what
+-------------------------------------------------------------------------------*/
+.what {
+    width: 100%;
+    height: 505px;
+    background: #f2f2f2;
+}
+
+.what_box h1 {
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+.what_box h2 {
+    margin-bottom: 10px;
+}
+
+.what_box h2:last-child {
+    text-decoration: underline;
+}
+
+.what_box_tech {
+    margin-bottom: 20px;
+}
+
+.what_box_tech > div {
+    display: inline-block;
+}
+
+.what_box_tech img {
+    margin: 4px;
+}
+
+.what_box_course {
+    height: 135px;
+
+    border: solid 1px;
+    margin-bottom: 15px;
+}
+
+/* how
+-------------------------------------------------------------------------------*/
+.how {
+    width: 100%;
+    height: 560px;
+
+    background: #bdc1c4;
+}
+
+.how h1 {
+    padding-top: 40px;
+    margin-bottom: 30px;
+}
+
+.how_box div {
+
+    width: 870px;
+    height: 131px;
+
+    margin: 0 auto 10px;
+
+    background-repeat: no-repeat;
+}
+
+.how_box div h2 {
+    color: black;
+    display: inline-block;
+
+}
+
+.how_box div h3 {
+    color: #0dc5d5;
+    display: inline-block;
+}
+
+.how_box div p {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.how_box_drive {
+    background-image: url(../images/how_03.jpg);
+    background-position: left;
+    text-align: left;
+}
+
+.how_box_o2o {
+    background-image: url(../images/how_07.jpg);
+    background-position: right;
+    text-align: right;
+}
+
+.how_box_creative {
+    background-image: url(../images/how_10.jpg);
+    background-position: left;
+    text-align: left;
+}
+
+.how_box_drive p,
+.how_box_creative p {
+    text-align: left;
+    margin-left: 260px;
+}
+
+.how_box_o2o p {
+    margin-right: 260px;
+}
+
+.how_box_drive h2,
+.how_box_creative h2 {
+    margin-left: 260px;
+    margin-right: 20px;
+}
+
+.how_box_o2o h2 {
+    margin-right: 260px;
+    margin-left: 20px;
+}
+
+/* why
+-------------------------------------------------------------------------------*/
+.why {
+    width: 100%;
+    height: 1100px;
+}
+
+.why_box h1 {
+    padding-top: 35px;
+    margin-bottom: 10px;
+}
+
+.why_box h2 {
+    margin-bottom: 6px;
+}
+
+.why_box h3 {
+    margin-bottom: 12px;
+}
+
+.why_box > div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 18px;
+}
+
+/* why_box_teacher
+-----------------------------------------------------------*/
+.why_box_teacher {
+    border: solid 1px;
+
+    width: 940px;
+    height: 290px;
+
+    background: black;
+}
+
+.why_box_teacher > div {
+    height: 240px;
+
+    margin-top: 25px;
+    margin-left: 2px;
+    margin-right: 2px;
+
+    background-color: #eceded;
+    background-position: left;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.why_box_teacher > div > div {
+    width: 375px;
+
+    margin-left: 180px;
+    text-align: left;
+}
+
+.why_box_teacher > div > div > p {
+    margin-right: 10px;
+}
+
+.why_box_teacher > div > div > h2,
+.why_box_teacher > div > div > h3 {
+    margin-top: 10px;
+    margin-bottom: 8px;
+
+    display: inline-block;
+    color: black;
+}
+
+.why_box_teacher > div > div > h2 {
+    margin-right: 25px;
+}
+
+.why_box_teacher > div > div > h3 {
+    margin-right: 12px;
+}
+
+/*
+-----------------------------------------------------------*/
+.why_box_work > div {
+
+    width: 190px;
+    height: 310px;
+
+    background: #bcbfc0;
+    display: inline-block;
+}
+
+.why_box_work > div:hover {
+    /* shadow */
+    box-shadow: 3px 3px 3px #000000;
+    -moz-box-shadow: 3px 3px 3px #000000;
+    -webkit-box-shadow: 3px 3px 3px #000000;
+    position: relative;
+    z-index: 10;
+
+    background: #c6c8c9;
+}
+
+.why_box_work > div > img {
+    margin-top: 22px;
+    margin-bottom: 16px;
+}
+
+.why_box_work > div > h3 {
+    width: 160px;
+
+    margin-left: 18px;
+
+    text-align: left;
+    color: #141414;
+}
+
+/*
+-----------------------------------------------------------*/
+.why_box_project > div {
+
+    width: 215px;
+
+    margin: 0 13px;
+
+    display: inline-block;
+}
+
+.why_box_project > div > p {
+    margin-top: 15px;
+    color: #141414;
+}
+
+/* can
+-------------------------------------------------------------------------------*/
+.can {
+    width: 100%;
+    height: 595px;
+
+    background: #bdc1c4;
+    text-align: center;
+}
+
+.can h1 {
+    padding-top: 40px;
+    margin-bottom: 8px;
+}
+
+.can h2 {
+    margin-bottom: 8px;
+}
+
+.can h3 {
+    margin-bottom: 23px;
+}
+
+.can_content {
+    width: 100%;
+    height: 375px;
+    background-image: url(../images/can_back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.can_content_box > div > div,
+.can_content_box > div > div > div > div {
+    display: inline-block;
+}
+
+.can_content_box > div > div > div > div {
+    width: 92px;
+    height: 92px;
+}
+
+.can_content_box > div > div {
+    width: 184px;
+    height: 184px;
+}
+
+.can_content_box img {
+    position: relative;
+    top: 0;
+}
+
+/* job
+-------------------------------------------------------------------------------*/
+.job {
+    width: 100%;
+    height: 615px;
+}
+
+.job_box h1 {
+    margin-top: 35px;
+    margin-bottom: 40px;
+}
+
+.job_box > img {
+    margin-bottom: 50px;
+}
+
+.job_box_corp div {
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.job_box_corp > div {
+    margin-left: 15px;
+}
+
+.job_box_corp > div > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* wait
+-------------------------------------------------------------------------------*/
+.wait {
+    width: 100%;
+    height: 490px;
+    background-image: url(../images/wait_back.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+    text-align: center;
+}
+
+.wait_top {
+    width: 100%;
+    height: 110px;
+
+    border-top: solid 2px #9a9fa3;
+    border-bottom: solid 2px #676f71;
+}
+
+.wait_top h1 {
+    padding-top: 40px;
+}
+
+.wait_bottom h2 {
+    margin-top: 15px;
+}
+
+.wait_bottom a {
+    width: 225px;
+    height: 60px;
+
+    margin-top: 225px;
+    border-radius: 30px;
+
+    background-color: #005c9f;
+    display: inline-block;
+}
+
+.wait_bottom a > h1 {
+    color: white;
+    height: 60px;
+    line-height: 60px;
+}
