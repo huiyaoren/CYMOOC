@@ -17,28 +17,34 @@ body {
 a,
 li {
     cursor: pointer;
+
+    text-decoration: none;
 }
 
-h1{
+h1 {
     font-size: .26rem;
     font-weight: 500;
     color: black;
 }
-h2{
+
+h2 {
     font-size: .20rem;
     font-weight: 500;
     color: #4f4f4f;
 
 }
-h3{
+
+h3 {
     font-size: .16rem;
     font-weight: 500;
     color: #4f4f4f;
 
 }
-p{
+
+p {
     font-size: .14rem;
 }
+
 .main {
     margin: 0 auto;
 }
@@ -48,6 +54,43 @@ p{
 
     display: inline-block;
     vertical-align: middle;
+}
+
+._box {
+    width: 1000px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    text-align: center;
+    position: relative;
+}
+
+._tag {
+    width: 178px;
+    height: 30px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 1px;
+
+    background: #dddddd;
+    color: black;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: .16rem;
+    line-height: 35px;
+    text-align: center;
+
+}
+
+._tag_choose {
+    height: 35px;
+
+    line-height: 35px;
+    background: #14598c;
+    color: white;
+
 }
 
 /* header
@@ -107,6 +150,7 @@ p{
 
     text-align: center;
     font-size: .24rem;
+    color: white;
 }
 
 .header_box > ul > li > a > ul {
@@ -152,7 +196,7 @@ p{
 }
 
 .header_box > a {
-                        height: .14rem;
+    height: .14rem;
     line-height: .14rem;
 
     padding-left: 14px;
