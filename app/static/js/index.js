@@ -45,12 +45,13 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
             }
         }
         setInterval(function () {
-            console.log(imgIndex);
             if (imgIndex > 3) {
                 imgIndex = 0;
             }
+            console.log(imgIndex);
+
             imgBox.src = imgList[imgIndex];
-            for (var i in range(num)) {
+            for (var i in range(this.num)) {
                 // todo 覆盖圆点样式
             }
             // todo 重新设置圆点样式
@@ -84,7 +85,7 @@ window.onload = function () {
     var imgBox = document.getElementById("banner_box_img");
     var leftArr = document.getElementById("banner_box_left");
     var rightArr = document.getElementById("banner_box_right");
-    var loop = new ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr);
+    var loop = new ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, 2000);
     loop.createButton();
     loop.autoRun();
     //buttonBox.appendChild(loop.button())
