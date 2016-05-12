@@ -44,7 +44,9 @@ h3 {
 p {
     font-size: .14rem;
 }
-
+ul{
+    list-style: none;
+}
 .main {
     margin: 0 auto;
 }

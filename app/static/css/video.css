@@ -1,0 +1,352 @@
+.container {
+}
+
+/*
+-------------------------------------------------------------------------------*/
+.container_player {
+    width: 100%;
+    height: 365px;
+
+    margin-top: 2px;
+}
+
+.container_player > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*
+-----------------------------------------------------------*/
+.container_player_video {
+    width: 667px;
+
+}
+
+/*
+-----------------------------------------------------------*/
+.container_player_list {
+    width: 330px;
+    height: 362px;
+
+    border-left: solid 1px #787878;
+
+    background: #404040;
+}
+
+/*
+---------------------------------------*/
+.container_player_list > div:first-child {
+    width: 100%;
+    height: 50px;
+
+    background: #252525;
+}
+
+.container_player_list > div:first-child > a {
+    width: 33.33%;
+    height: 100%;
+
+    font-size: .18rem;
+    line-height: 50px;
+    color: #707070;
+    display: inline-block;
+
+}
+
+.container_player_list > div:first-child > a:first-child {
+    background: #14598c;
+    color: white;
+}
+
+/*
+---------------------------------------*/
+.container_player_list > div:last-child {
+    width: 100%;
+
+    text-align: left;
+
+}
+
+.container_player_list > div:last-child > div {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.container_player_list > div:last-child > div > h3,
+.container_player_list > div:last-child > div > p {
+    color: #9ea5aa;
+    margin-left: 28px;
+}
+
+.container_player_list > div:last-child > div > h3 {
+}
+
+.container_player_list > div:last-child > div > p {
+    margin-top: 5px;
+    display: none;
+}
+
+.container_player_list > div:last-child > div > p > span {
+    margin-left: 30px;
+
+}
+
+.container_player_list > div:last-child > div:first-child,
+.container_player_list > div:last-child > div:hover {
+    width: 100%;
+    background: #207ec4;
+}
+
+.container_player_list > div:last-child > div:first-child > h3,
+.container_player_list > div:last-child > div:first-child > p,
+.container_player_list > div:last-child > div:hover > h3,
+.container_player_list > div:last-child > div:hover > p {
+    color: white;
+    display: block
+}
+
+/*
+-------------------------------------------------------------------------------*/
+.container_content {
+    margin-top: 27px;
+    margin-right: 13px;
+}
+
+.container_content > div {
+    display: inline-block;
+}
+
+/*
+-----------------------------------------------------------*/
+.container_content_comment {
+
+    width: 700px;
+    margin-bottom: 27px;
+    margin-right: 13px;
+
+}
+
+.container_content_comment_tag > a {
+    width: 33%;
+    height: 30px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 1px;
+
+    background: #dddddd;
+    color: black;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: .16rem;
+    line-height: 35px;
+    text-align: center;
+
+}
+
+.container_content_comment_tag > a:first-child,
+.container_content_comment_tag > a:hover {
+    height: 35px;
+
+    line-height: 35px;
+    background: #14598c;
+    color: white;
+
+}
+
+.container_content_comment_detail {
+
+    border: solid 1px #878787;
+    padding-bottom: 45px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.container_content_comment_detail textarea {
+    height: 50px;
+    width: 550px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    resize: none;
+}
+
+.container_content_comment_detail > div:first-child {
+    width: 670px;
+
+    margin: 0 auto 18px;
+    border-bottom: solid 1px #787878;
+
+}
+
+.container_content_comment_detail > div:first-child > * {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.container_content_comment_detail > div:first-child > a {
+    width: 85px;
+    height: 30px;
+
+    background: #999999;
+    line-height: 30px;
+    display: inline-block;
+    font-size: .20rem;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div {
+    width: 670px;
+    height: 95px;
+
+    border: solid 1px #787878;
+    margin: 0 auto 27px;
+
+    position: relative;
+    text-align: left;
+
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > * {
+    display: inline-block;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > img {
+    width: 60px;
+    height: 60px;
+
+    position: absolute;
+    top: 17px;
+    left: 20px;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > h2 {
+    margin-top: 15px;
+    margin-left: 95px;
+    margin-right: 16px;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > h3 {
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > div {
+    width: 380px;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > p {
+    display: block;
+    margin-left: 95px;
+    margin-top: 6px;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > span {
+
+    position: absolute;
+    bottom: 15px;
+    right: 22px;
+
+    font-size: .14rem;
+    color: #404040;
+    line-height: 16px;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > span > a {
+    width: 16px;
+    height: 16px;
+
+    margin-left: 5px;
+    margin-right: 5px;
+
+    display: inline-block;
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > span > a:first-child {
+    background: url("../images/video/good.png");
+}
+
+.container_content_comment_detail > div:nth-child(2) > div > span > a:last-child {
+    background: url("../images/video/bad.png");
+}
+
+.container_content_comment_detail > div:last-child {
+    width: 100%;
+
+    position: absolute;
+    bottom: 30px;
+
+    text-align: center;
+}
+
+.container_content_comment_detail > div:last-child > a {
+    padding: 8px 12px;
+    border: solid 1px #cecece;
+    border-radius: 3px;
+    margin: 0 2px;
+
+    background: #eeeeee;
+    font-size: .14rem;
+
+}
+
+/*
+-----------------------------------------------------------*/
+.container_content_score {
+    width: 285px;
+    height: 285px;
+
+    border: solid 1px #787878;
+
+    vertical-align: top;
+
+}
+
+.container_content_score > * {
+    display: inline-block;
+}
+
+.container_content_score h2 {
+    width: 100%;
+    height: 43px;
+
+    line-height: 43px;
+    background: #005c9f;
+    color: white;
+    font-size: .18rem;
+}
+
+.container_content_score > div > div:first-child {
+    width: 260px;
+    height: 150px;
+
+    border-bottom: solid 1px #787878;
+
+}
+.container_content_score > div > div:first-child > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.container_content_score > div > div:first-child > ul {
+    margin-top: 11px;
+
+    line-height: 30px;
+
+    font-size: .16rem;
+
+}
+
+.container_content_score > div > div:first-child > h1 {
+    margin-top: 35px;
+    margin-left: 50px;
+
+
+    font-size: .5rem;
+}
+.container_content_score > div > div:last-child > img {
+    margin: 25px 14px 0;
+
+    cursor: pointer;
+}

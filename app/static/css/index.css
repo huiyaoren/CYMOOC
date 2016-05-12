@@ -235,6 +235,8 @@
     background-repeat: no-repeat;
     display: inline-block;
     vertical-align: top;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .why_box_teacher > div > div {
@@ -267,6 +269,13 @@
 
 /*
 -----------------------------------------------------------*/
+.why_box_work {
+    height: 310px;
+
+    background: #bcbfc0;
+    overflow: hidden;
+
+}
 .why_box_work > div {
 
     width: 190px;
@@ -274,6 +283,8 @@
 
     background: #bcbfc0;
     display: inline-block;
+    position: relative;
+
 }
 
 .why_box_work > div:hover {
@@ -282,7 +293,6 @@
     -moz-box-shadow: 3px 3px 3px #000000;
     -webkit-box-shadow: 3px 3px 3px #000000;
 
-    position: relative;
     z-index: 10;
 
     background: #c6c8c9;
@@ -455,5 +465,7 @@
 
     position: fixed;
     bottom: 5vh;
-    right: 2vw;
+    right: 1vw;
+    cursor: pointer;
+    z-index: 11;
 }
