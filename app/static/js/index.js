@@ -23,12 +23,16 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
     this.buttonBox = buttonBox; // 圆点位置
     this.imgBox = imgBox;
     this.time = time; // 图片位置
+    var buttons = buttonBox.getElementsByTagName("a");
+
 
     // 生成圆点
     this.button = function () {
         var frag = document.createDocumentFragment();
         for (var n in range(this.num)) {
             var button = document.createElement("a");
+            button.rel = n;//todo
+
             if (n == 0) {
                 button.style.background = "none";
             }
@@ -41,13 +45,20 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
     this.createButton = function () {
         buttonBox.appendChild(this.button())
     };
+    function setButton(index) {
+        for (var i in range(imgList.length)) {
+            // 覆盖圆点样式
+            buttons[i].style.background = "#747474";
+        }
+        // 重新设置圆点样式
+        buttons[index].style.background = "none";
+    }
 
-    // 自动循环
+    // 自动循环index
     this.autoRun = function () {
 
-        var buttons = buttonBox.getElementsByTagName("a");
 
-        for (var n in range(this.num)) {
+        for (var n in range(imgList.length)) {
             if (buttons[n].style.background == "none") {
                 var imgIndex = Number(n);
             }
@@ -59,50 +70,113 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
             //console.log(imgIndex);
 
             imgBox.src = imgList[imgIndex];
-            for (var i in range(imgList.length)) {
-                // 覆盖圆点样式
-                buttons[i].style.background = "#747474";
-            }
-            // 重新设置圆点样式
-            buttons[imgIndex].style.background = "none";
+            setButton(imgIndex);
+            //for (var i in range(imgList.length)) {
+            //    // 覆盖圆点样式
+            //    buttons[i].style.background = "#747474";
+            //}
+            //// 重新设置圆点样式
+            //buttons[imgIndex].style.background = "none";
 
             imgIndex += 1;
-        }, this.time);
+        }, time);
         //console.log(autoRunLoop);
         //return autoRunLoop
     };
 
     // todo 左侧移入
     this.runLeft = function () {
-        alert(111)
+        //alert("left");
+        clearInterval(autoRunLoop);
+
+        for (var i in range(imgList.length)) {
+
+            if (buttons[i].style.background == "none") {
+                var index = i;
+                buttons[i].style.background = "#747474";
+            }
+        }
+        index = Number(index)-1;
+
+        if (index < 0) {
+            index = 3
+        }
+        buttons[index].style.background = "none";
+
+        console.log(index);
+        imgBox.src = imgList[Number(index)];
     };
 
     // todo 右侧移入
     this.runRight = function () {
+        clearInterval(autoRunLoop);//todo 拆分到onmouseover与onmouseout事件中
 
+        for (var i in range(imgList.length)) {
+            //console.log(i);
+            if (buttons[i].style.background == "none") {
+                var index = i;
+                console.log(index);
+
+
+                buttons[i].style.background = "#747474";
+            }
+        }
+        index = Number(index)+1;
+
+        if (index > 3) {
+            index = 0
+        }
+
+        console.log(index);
+        buttons[Number(index)].style.background = "none";
+
+        imgBox.src = imgList[index];
+        //this.autoRun() //todo 再次调用autoRun()
     };
 
 
     //todo 选择圆点切换图片
-    this.selectImg = function () {
-        console.log(autoRunLoop);
+    this.selectImg = function (event) {
+        //console.log(autoRunLoop);
+        console.log(event.target.rel);
+        clearInterval(autoRunLoop);
 
-        console.log(111); // todo 载入就运行?
+        imgBox.src = imgList[Number(event.target.rel)];
+        setButton(Number(event.target.rel));
+
+
     };
     // todo 运行
     this.run = function () {
-        buttonBox.onload = this.createButton();
-        imgBox.onload = this.autoRun();
-        //leftArr.onclick = this.runLeft();
-        //rightArr.onclick = this.runRight();
-        buttonBox.onclick = this.selectImg;
+
+        this.createButton();
+        this.autoRun();
+
+        leftArr.onclick = this.runLeft;
+        rightArr.onclick = this.runRight;
+        //buttonBox.onclick = this.selectImg;
+        for (var i in range(buttons.length)) {
+            buttons[i].onmouseover = this.selectImg;
+            buttons[i].onmouseout = this.autoRun;
+        }
         //buttonBox.onmouseout = this.autoRun();
         //imgBox.removeEventListener("load", this.autoRun, true);
 
     }
 }
 
-// 教师介绍
+
+window.onload = function () {
+    var buttonBox = document.getElementById("banner_box_button");
+    var imgBox = document.getElementById("banner_box_img");
+    var leftArr = document.getElementById("banner_box_left");
+    var rightArr = document.getElementById("banner_box_right");
+    var loop = new ImgLoop(banner_imgList, buttonBox, imgBox, leftArr, rightArr, 1000);
+    loop.run();
+    //buttonBox.appendChild(loop.button())
+};
+
+// 教师介绍 手风琴
 function playAccordion(evt) {
     //console.log(evt.target);
 
@@ -125,38 +199,30 @@ function playAccordion(evt) {
 
 // todo 学员作品展示
 function workLoop() {
-    var loopBox = document.getElementById("why_box_work");
-    var loops = loopBox.children;
+    var loopBoxes = document.getElementById("why_box_work");
+    var loopBox = loopBoxes.children;
+
+    // 复制元素
     console.log(loops);
-    for(var i in range(loops.length)){
-        loopBox.appendChild(loops[i].cloneNode(true));
+    //for (var i in range(loops.length)) {
+    //    var _node=loops[i].cloneNode(true);
+    //    _node.style.top = "-310px";
+    //    _node.style.right = "-10000px";
+    //    loopBox.appendChild(_node);
+    //}
 
-    }
-
-
+    // 初始位置
     var _left = 0;
 
 
     setInterval(function () {
         _left -= 10;
-
-
         for (var i in range(loops.length)) {
-            //console.log(loops[i].offsetLeft);
-            loops[i].style.left = _left+"px";
+            console.log(loops[i].offsetLeft);
+            loops[i].style.left = _left + "px";
         }
-
     }, 100)
 
 
 }
-window.onload = function () {
-    var buttonBox = document.getElementById("banner_box_button");
-    var imgBox = document.getElementById("banner_box_img");
-    var leftArr = document.getElementById("banner_box_left");
-    var rightArr = document.getElementById("banner_box_right");
-    var loop = new ImgLoop(banner_imgList, buttonBox, imgBox, leftArr, rightArr, 1000);
-    loop.run();
-    //buttonBox.appendChild(loop.button())
-};
 
