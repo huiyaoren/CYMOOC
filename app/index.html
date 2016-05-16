@@ -5,6 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="static/css/base.css"/>
     <link rel="stylesheet" href="static/css/index.css"/>
+    <script rel="script" src="static/js/base.js"></script>
     <script rel="script" src="static/js/index.js"></script>
 </head>
 <body>
@@ -12,7 +13,6 @@
     <div class="header">
         <div class="header_sign" id="header_sign">
             <h1>注册</h1>
-
             <form>
                 <label for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
 
@@ -31,7 +31,19 @@
                 <input type="submit" value="注册">
             </form>
         </div>
-        <div class="header_login" id="header_login"></div>
+        <div class="header_login" id="header_login">
+            <h1>登陆</h1>
+            <form>
+                <label for="login_username"><span>账号不存在</span></label>
+
+                <input type="text" id="login_username" placeholder="账号">
+                <label for="login_username"><span>密码错误</span></label>
+
+                <input type="text" id="login_password" placeholder="密码">
+                <input type="submit" id="login_submit" value="登陆">
+                <input type="button" id="login_forget" value="忘记密码">
+            </form>
+        </div>
         <div class="header_box">
             <div class="_empty"></div>
             <img src="static/images/logo.png">

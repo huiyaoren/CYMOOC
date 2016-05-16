@@ -2,19 +2,28 @@
  * Created by wslsh on 2016/5/8.
  */
 
+window.onload = function () {
+    var buttonBox = document.getElementById("banner_box_button");
+    var imgBox = document.getElementById("banner_box_img");
+    var leftArr = document.getElementById("banner_box_left");
+    var rightArr = document.getElementById("banner_box_right");
+    var loop = new ImgLoop(banner_imgList, buttonBox, imgBox, leftArr, rightArr, 2000);
+    loop.run();
+    workLoop();
+    imgMask();
+    header_box_sign.onclick = showSign;
+    header_box_login.onclick = showLogin;//todo
+};
+
+
+
 var banner_imgList = [
     "static/images/banner0.png",
     "static/images/banner1.png",
     "static/images/banner2.png",
     "static/images/banner3.png"
 ];
-function range(num) {
-    var list = [];
-    for (var i = 0; i < num; i++) {
-        list[i] = i;
-    }
-    return list
-}
+
 
 // 轮播图对象
 function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
@@ -87,7 +96,7 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
     // todo 左侧移入
     this.runLeft = function () {
         //alert("left");
-        clearInterval(autoRunLoop);
+        clearInterval(autoRunLoop);//todo 拆分到onmouseover与onmouseout事件中
 
         for (var i in range(imgList.length)) {
 
@@ -166,18 +175,6 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
 }
 
 
-window.onload = function () {
-    var buttonBox = document.getElementById("banner_box_button");
-    var imgBox = document.getElementById("banner_box_img");
-    var leftArr = document.getElementById("banner_box_left");
-    var rightArr = document.getElementById("banner_box_right");
-    var loop = new ImgLoop(banner_imgList, buttonBox, imgBox, leftArr, rightArr, 1000);
-    loop.run();
-    workLoop();
-    imgMask();
-    header_box_sign.onclick = showSign
-};
-
 // 教师介绍 手风琴
 function playAccordion(evt) {
     //console.log(evt.target);
@@ -240,7 +237,7 @@ function workLoop() {
         //        console.log(loops[i].offsetLeft);
         //        loops[i].style.left = _left + "px";
         //    }
-    }, 20)
+    }, 100)
 }
 // 学员照片遮罩
 function imgMask(){
