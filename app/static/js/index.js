@@ -96,7 +96,7 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
                 buttons[i].style.background = "#747474";
             }
         }
-        index = Number(index)-1;
+        index = Number(index) - 1;
 
         if (index < 0) {
             index = 3
@@ -121,7 +121,7 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
                 buttons[i].style.background = "#747474";
             }
         }
-        index = Number(index)+1;
+        index = Number(index) + 1;
 
         if (index > 3) {
             index = 0
@@ -173,7 +173,9 @@ window.onload = function () {
     var rightArr = document.getElementById("banner_box_right");
     var loop = new ImgLoop(banner_imgList, buttonBox, imgBox, leftArr, rightArr, 1000);
     loop.run();
-    //buttonBox.appendChild(loop.button())
+    workLoop();
+    imgMask();
+    header_box_sign.onclick = showSign
 };
 
 // 教师介绍 手风琴
@@ -200,10 +202,14 @@ function playAccordion(evt) {
 // todo 学员作品展示
 function workLoop() {
     var loopBoxes = document.getElementById("why_box_work");
-    var loopBox = loopBoxes.children;
+    var loopBox = loopBoxes.children[0];
 
     // 复制元素
-    console.log(loops);
+    var _loopBox = loopBox.cloneNode(true);
+    _loopBox.style.top = "-310px";
+    loopBoxes.appendChild(_loopBox);
+    //console.log(_loopBox);
+
     //for (var i in range(loops.length)) {
     //    var _node=loops[i].cloneNode(true);
     //    _node.style.top = "-310px";
@@ -212,17 +218,50 @@ function workLoop() {
     //}
 
     // 初始位置
-    var _left = 0;
+    var left = 0;
+    var _left = 950;
 
 
     setInterval(function () {
-        _left -= 10;
-        for (var i in range(loops.length)) {
-            console.log(loops[i].offsetLeft);
-            loops[i].style.left = _left + "px";
+        if (loopBox.offsetLeft < -950) {
+            left = 950
         }
-    }, 100)
+        if (_loopBox.offsetLeft < -950) {
+            _left = 950
+        }
+        _left -= 1;
+        left -= 1;
 
+        loopBox.style.left = left + "px";
+        _loopBox.style.left = _left + "px";
+        //console.log(loopBox.offsetLeft);
 
+        //    for (var i in range(loops.length)) {
+        //        console.log(loops[i].offsetLeft);
+        //        loops[i].style.left = _left + "px";
+        //    }
+    }, 20)
 }
+// 学员照片遮罩
+function imgMask(){
+    var imgBox = document.getElementById("can_content_box");
+    var imgs = imgBox.getElementsByTagName("img");
+    var frag = document.createDocumentFragment();
 
+    for (var i in range(imgs.length)){
+        var mask = document.createElement("div");
+        mask.style.width = imgs[i].width+"px";
+        mask.style.height = imgs[i].height+"px";
+        mask.style.top =  imgs[i].offsetTop+"px";
+        mask.style.left =  imgs[i].offsetLeft+"px";
+        mask.className = "_mask";
+
+        frag.appendChild(mask);
+    }
+    imgBox.appendChild(frag);
+}
+function showSign(){
+    var box = document.getElementById("header_sign");
+    console.log(box);
+    box.style.display = "block"
+}

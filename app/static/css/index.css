@@ -2,7 +2,16 @@
     /*border: solid 1px;*/
 }
 
+._mask{
+    position: absolute;
+    background: rgba(0,0,0,.7);
+    z-index: 9;
+    cursor: pointer;
 
+}
+._mask:hover{
+    background: rgba(0,0,0,0);
+}
 /* banner
 -------------------------------------------------------------------------------*/
 .banner {
@@ -98,13 +107,16 @@
 
 .what_box_tech img {
     margin: 4px;
+    cursor: pointer;
 }
 
 .what_box_course {
-    height: 135px;
+    /*height: 135px;*/
 
     border: solid 1px;
     margin-bottom: 15px;
+
+    text-align: center;
 }
 
 /* how
@@ -274,18 +286,20 @@
 
     background: #bcbfc0;
     overflow: hidden;
+}
 
+.why_box_work > div {
+    position: relative;
 }
 .why_box_work > div> div {
 
     width: 190px;
-    height: 310px;
+    height: 307px;
 
     background: #bcbfc0;
     display: inline-block;
     position: relative;
     top:0;
-
 }
 
 .why_box_work > div> div:hover {
@@ -304,7 +318,7 @@
     margin-bottom: 16px;
 }
 
-.why_box_work > div> div > h3 {
+.why_box_work > div > div > h3 {
     width: 160px;
 
     margin-left: 18px;

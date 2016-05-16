@@ -10,6 +10,28 @@
 <body>
 <div class="main">
     <div class="header">
+        <div class="header_sign" id="header_sign">
+            <h1>注册</h1>
+
+            <form>
+                <label for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
+
+                <input type="text" id="sign_username" placeholder=" 账号（必须填写）">
+                <label for="sign_password1"><span>密码未填写</span></label>
+
+                <input type="password" id="sign_password1" placeholder=" 静态密码（必须填写）">
+                <label for="sign_password2"><span>两次输入密码不正确</span></label>
+
+                <input type="password" id="sign_password2" placeholder=" 确认密码（必须填写）">
+                <label for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
+
+                <input type="text" id="sign_email" placeholder=" 邮箱账号（必须填写）">
+                <label for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
+                <input type="text" id="sign_pin" placeholder=" 验证码（必须填写）">
+                <input type="submit" value="注册">
+            </form>
+        </div>
+        <div class="header_login" id="header_login"></div>
         <div class="header_box">
             <div class="_empty"></div>
             <img src="static/images/logo.png">
@@ -36,8 +58,8 @@
                 <input type="text" name="search" placeholder="  请输入关键字">
                 <a></a>
             </form>
-            <a>登陆</a>
-            <a style="border: none">注册</a>
+            <a id="header_box_login">登陆</a>
+            <a id="header_box_sign" style="border: none">注册</a>
         </div>
     </div>
 
@@ -86,7 +108,9 @@
 
             <h2>推荐课程</h2>
 
-            <div class="what_box_course"></div>
+            <div class="what_box_course">
+                <div class="_course"></div>
+            </div>
             <a><h2>查看更多教程</h2></a>
         </div>
 
@@ -276,8 +300,8 @@
 
             <h3>专业的课程，严格的企业标准项目考核，一切以实战为目标</h3>
 
-            <div class="why_box_work" id="why_box_work" onclick="workLoop()">
-                <div>
+            <div class="why_box_work" id="why_box_work" onload="workLoop()">
+                <div style="left: 0">
                     <div>
                         <img src="static/images/work_03.jpg">
 
@@ -357,11 +381,12 @@
         <h3>让学霸用亲身经历告诉你，学霸是怎样炼成的</h3>
 
         <div class="can_content">
-            <div class="can_content_box _box">
+            <div class="can_content_box _box" id="can_content_box">
                 <div>
                     <div>
 
                         <img src="static/images/can_01.jpg"/>
+
                         <div></div>
                     </div>
                     <div>
@@ -378,42 +403,50 @@
                             </div>
                         </div>
                         <div>
-                            <div><div></div>
+                            <div>
+                                <div></div>
                                 <img src="static/images/can_04.jpg"/>
 
                             </div>
-                            <div><div></div>
+                            <div>
+                                <div></div>
                                 <img src="static/images/can_05.jpg"/>
 
                             </div>
                         </div>
                     </div>
-                    <div><div></div>
+                    <div>
+                        <div></div>
                         <img src="static/images/can_06.jpg"/>
                     </div>
                     <div>
                         <div>
-                            <div><div></div>
+                            <div>
+                                <div></div>
                                 <img src="static/images/can_07.jpg"/>
 
                             </div>
-                            <div><div></div>
+                            <div>
+                                <div></div>
                                 <img src="static/images/can_08.jpg"/>
 
                             </div>
                         </div>
                         <div>
-                            <div><div></div>
+                            <div>
+                                <div></div>
                                 <img src="static/images/can_09.jpg"/>
 
                             </div>
-                            <div><div></div>
+                            <div>
+                                <div></div>
                                 <img src="static/images/can_10.jpg"/>
 
                             </div>
                         </div>
                     </div>
-                    <div><div></div>
+                    <div>
+                        <div></div>
                         <img src="static/images/can_11.jpg"/>
                     </div>
                 </div>
@@ -512,11 +545,12 @@
         <div class="job_box _box">
             <h1>[就业怎么样？]</h1>
             <img src="static/images/job_back.jpg"/>
+
             <div class="job_box_corp">
                 <div class="_empty"></div>
                 <div><h2>合 作<br/>企 业</h2></div>
                 <div>
-                    <div><img src="static/images/corp_03.jpg"/> </div>
+                    <div><img src="static/images/corp_03.jpg"/></div>
                     <div><img src="static/images/corp_04.jpg"/></div>
                     <div><img src="static/images/corp_05.jpg"/></div>
                     <div><img src="static/images/corp_06.jpg"/></div>
