@@ -11,7 +11,7 @@ var _direct = [
 
 var name_1 = [
     "HTML/CSS", "JavaScript", "CSS3", "HTML5", "jQuery", "AngularJS", "Node.js", "Bootstrap", "Webapp",
-    "前端工具", "Php", "JAVA", "Linux", "Python", "C语言", "C++", "C++", "Go", "C#", "Android", "iOS", "Unity3D", "Coco2d-x", "Premiere",
+    "前端工具", "Php", "JAVA", "Linux", "Python", "C语言", "C++", "Go", "C#", "Android", "iOS", "Unity3D", "Coco2d-x", "Premiere",
     "MongoDB", "云计算", "Oracle", "大数据", "SQL Server", "PhotoShop", "Maya"
 ];
 
@@ -24,7 +24,7 @@ var _direct_1 = [
     "HTML/CSS", "JavaScript", "CSS3", "HTML5", "jQuery", "AngularJS", "Node.js", "Bootstrap", "前端工具"
 ];
 var _direct_2 = [
-    "Webapp", "Php", "JAVA", "Python", "C语言", "C++", "C++", "Go", "C#"
+    "Webapp", "Php", "JAVA", "Python", "C语言", "C++", "Go", "C#"
 ];
 var _direct_3 = [
     "Android", "iOS"

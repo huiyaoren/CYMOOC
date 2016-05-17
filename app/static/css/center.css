@@ -61,11 +61,11 @@
 
 .container_nav_box > div > ul > li {
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 25px;
 }
 
 .container_nav_box > div > ul > li > a{
-    padding: 2px 3px;
+    padding: 2px 5px;
 
 }
 .container_nav_box > div > ul > li > a:hover,
