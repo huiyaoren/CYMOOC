@@ -359,22 +359,3 @@
     position: relative;
     font-size: .14rem;
 }
-.container_right2_box >div:last-child{
-    width: 100%;
-
-    position: absolute;
-    bottom: 45px;
-
-    text-align: center;
-}
-.container_right2_box >div:last-child>a{
-    padding: 8px 12px;
-    border: solid 1px #cecece;
-    border-radius: 3px;
-
-    margin: 0 2px;
-    background: #eeeeee;
-
-}
-
-.container_right2_box_button {}

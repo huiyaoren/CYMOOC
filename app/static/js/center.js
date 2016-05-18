@@ -6,25 +6,43 @@ window.onload = function () {
     createClassTag(direct_0);
     createCourseData();
     createCourseBlock(_class);
+    SetPage();
+    switchPageByIndex(1);
+
 
     container_nav_box_direct.onclick = function () {
         changeClassTag(event);
         setTagStyle(container_nav_box_hard.getElementsByTagName("a")[0]);
         selectDirectBlock(event);
+        SetPage();
+        container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+            switchPage(event);
+        };
     };
 
     container_nav_box_class.onclick = function () {
         setTagStyle(event.target);//todo
         setTagStyle(container_nav_box_hard.getElementsByTagName("a")[0]);
         selectClassBlock(event);
+        SetPage();
+        container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+            switchPage(event);
+        };
     };
 
     container_nav_box_hard.onclick = function () {
         setTagStyle(event.target);//todo
         selectHardBlock(event);
+        SetPage();
+        container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+            switchPage(event);
+        };
     };
 
 
+    container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+        switchPage(event);
+    };
     //console.log(_class);
 };
 
@@ -119,9 +137,10 @@ function changeClassTag(evt) {
 }
 
 
+// 传入对象数组 创建课程内容
 function createCourseBlock(list) {
     //todo 生成课程列表
-    container_show.innerHTML = "";
+    container_show_content.innerHTML = "";
 
     //console.log(_class);
 
@@ -146,13 +165,14 @@ function createCourseBlock(list) {
         block.appendChild(_span_1);
         block.appendChild(_span_2);
 
-        container_show.appendChild(block);
+        container_show_content.appendChild(block);
         // todo 分页
     }
 
 }
 
 
+// 选择 方向 创建课程内容
 function selectDirectBlock(evt) {
     if (evt.target.tagName == "A") {
         if (evt.target.innerText == "全部") {
@@ -174,6 +194,7 @@ function selectDirectBlock(evt) {
 }
 
 
+// 选择 分类 创建课程内容
 function selectClassBlock(evt) {
     if (evt.target.tagName == "A") {
 
@@ -227,6 +248,7 @@ function selectClassBlock(evt) {
 }
 
 
+// 选择 难度 创建课程内容
 function selectHardBlock(evt) {
     if (evt.target.tagName == "A") {
 
@@ -319,7 +341,6 @@ function selectHardBlock(evt) {
 
                     createCourseBlock(_class_5);
 
-
                 }
             } else {
                 //分类标签为非全部时
@@ -330,12 +351,152 @@ function selectHardBlock(evt) {
                     }
                 }
                 createCourseBlock(_class_0);
-
             }
-
-
         }
     }
 
 
 }
+
+
+// 课程分页
+function SetPage() {
+
+
+    var courses = container_show_content.getElementsByClassName("_course");
+    if (document.getElementById("container_show_button")) {
+        container_show.removeChild(container_show_button);
+    }
+
+    if (courses.length > 15) {
+
+        // 计算页数
+        var page = (courses.length / 15).toFixed(0);
+
+        // 创建 翻页按钮
+        var page_box = document.createElement("div");
+        var button_before = document.createElement("a");
+        var button_after = document.createElement("a");
+        page_box.className = "_button_page";
+        page_box.id = "container_show_button";
+
+        // 上一页
+        button_before.innerText = "上一页";
+        page_box.appendChild(button_before);
+
+        // 数字页码
+        for (var i in range(page)) {
+            var button = document.createElement("a");
+            if (i == 0) {
+                button.style.fontWeight = "900";
+            }
+            button.innerText = Number(i) + 1;
+            //console.log(button);
+            page_box.appendChild(button);
+        }
+
+        // 下一页
+        button_after.innerText = "下一页";
+        page_box.appendChild(button_after);
+        console.log(page_box);
+
+        // 插入文档
+        container_show.appendChild(page_box);
+    }
+}
+
+
+// 通过 页数 切换页面
+function switchPageByIndex(index) {
+    var courses = container_show_content.getElementsByClassName("_course");
+
+
+    var top = -(index - 1) * 510 + "px";
+    for (var i in range(courses.length)) {
+        courses[i].style.position = "relative";
+        courses[i].style.top = top;
+    }
+}
+
+
+// 切换页面
+function switchPage(evt) {
+    if (evt.target.tagName == "A") {
+        var buttons = container_show_button.getElementsByTagName("a");
+
+        // 找到标记 并清空
+        for (var i in range(buttons.length)) {
+            if (buttons[i].style.fontWeight == "900") {
+                var index_0 = i;
+
+            }
+            buttons[i].style.fontWeight = "500";
+        }
+
+
+        // 点击 上一页
+        if (evt.target.innerText == "上一页") {
+            if (index_0 > 1) {
+                //console.log(index_0);
+
+                switchPageByIndex(index_0 - 1);
+                buttons[index_0 - 1].style.fontWeight = "900";
+            } else {
+                buttons[1].style.fontWeight = "900";
+            }
+
+            // 点击 下一页
+        } else if (evt.target.innerText == "下一页") {
+            //todo
+            if (index_0 < buttons.length-2) {
+                index_0 = Number(index_0);
+                console.log(index_0 + 1);
+
+                switchPageByIndex(Number(index_0) + 1);
+                buttons[index_0 + 1].style.fontWeight = "900";
+            } else {
+                buttons[buttons.length-2].style.fontWeight = "900";
+            }
+
+            // 点击 数字页码
+        } else {
+            var index = Number(evt.target.innerText);
+            switchPageByIndex(index);
+            evt.target.style.fontWeight = "900";
+        }
+    }
+}
+//
+//
+//function createCourseBlock(list) {
+//    //todo 生成课程列表
+//    container_show_content.innerHTML = "";
+//
+//    //console.log(_class);
+//
+//    for (var i in range(list.length)) {
+//
+//        var block = document.createElement("div");
+//        var _div = document.createElement("div");
+//        var _p = document.createElement("p");
+//        var _img = document.createElement("img");
+//        var _span_1 = document.createElement("span");
+//        var _span_2 = document.createElement("span");
+//
+//        block.className = "_course";
+//        _p.innerText = list[i].name;
+//        _div.appendChild(_p);
+//        _img.src = "static/images/course_line_03.jpg";
+//        _span_1.innerText = "评分：" + list[i].grade.toFixed(1);
+//        _span_2.innerText = list[i].follow + "人关注";
+//
+//        block.appendChild(_div);
+//        block.appendChild(_img);
+//        block.appendChild(_span_1);
+//        block.appendChild(_span_2);
+//
+//        container_show_content.appendChild(block);
+//        // todo 分页
+//    }
+//
+//}

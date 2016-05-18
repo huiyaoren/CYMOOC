@@ -153,6 +153,25 @@ ul {
     margin: 12px 10px 0;
 }
 
+._button_page{
+    width: 100%;
+
+    position: absolute;
+    bottom: 30px;
+
+    text-align: center;
+}
+._button_page>a{
+    padding: 8px 12px;
+    border: solid 1px #cecece;
+    border-radius: 3px;
+    margin: 0 2px;
+
+    background: #eeeeee;
+    font-size: .14rem;
+
+}
+
 /* header
 -------------------------------------------------------------------------------*/
 .header {

@@ -271,25 +271,6 @@
     background: url("../images/video/bad.png");
 }
 
-.container_content_comment_detail > div:last-child {
-    width: 100%;
-
-    position: absolute;
-    bottom: 30px;
-
-    text-align: center;
-}
-
-.container_content_comment_detail > div:last-child > a {
-    padding: 8px 12px;
-    border: solid 1px #cecece;
-    border-radius: 3px;
-    margin: 0 2px;
-
-    background: #eeeeee;
-    font-size: .14rem;
-
-}
 
 /*
 -----------------------------------------------------------*/
