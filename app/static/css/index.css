@@ -12,6 +12,7 @@
 ._mask:hover{
     background: rgba(0,0,0,0);
 }
+
 /* banner
 -------------------------------------------------------------------------------*/
 .banner {
@@ -28,6 +29,8 @@
 .banner_box > img {
     margin-top: 90px;
     margin-bottom: 10px;
+
+    cursor: pointer;
 
 }
 
@@ -80,7 +83,7 @@
 -------------------------------------------------------------------------------*/
 .what {
     width: 100%;
-    height: 505px;
+    height: 510px;
     background: #f2f2f2;
 }
 
@@ -113,8 +116,6 @@
 .what_box_course {
     /*height: 135px;*/
 
-    border: solid 1px;
-    margin-bottom: 15px;
 
     text-align: center;
 }
@@ -483,4 +484,18 @@
     right: 1vw;
     cursor: pointer;
     z-index: 11;
+}
+.float a{
+    width: 100%;
+    line-height: .2rem;
+    font-size: .2rem;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: solid 1px black;
+
+    color: black;
+    background: white;
+    display: inline-block;
+    text-align: center;
 }

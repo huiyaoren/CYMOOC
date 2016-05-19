@@ -3,18 +3,28 @@
  */
 
 window.onload = function () {
-    var buttonBox = document.getElementById("banner_box_button");
-    var imgBox = document.getElementById("banner_box_img");
-    var leftArr = document.getElementById("banner_box_left");
-    var rightArr = document.getElementById("banner_box_right");
-    var loop = new ImgLoop(banner_imgList, buttonBox, imgBox, leftArr, rightArr, 2000);
-    loop.run();
-    workLoop();
-    imgMask();
-    header_box_sign.onclick = showSign;
-    header_box_login.onclick = showLogin;//todo
-};
+    // 载入 登陆注册模块
+    headerShow();
 
+    // 轮播图对象
+    var loop = new ImgLoop(
+        banner_imgList,
+        banner_box_button,
+        banner_box_img,
+        banner_box_left,
+        banner_box_right,
+        1000);
+    loop.run();
+
+    // 走马灯
+    workLoop();
+    // 学霸墙
+    imgMask();
+    // 创建课程对象
+    createCourseData();
+    // 创建推荐课程
+    createCourseBlock2(_class.slice(0, 5), what_box_course);
+};
 
 
 var banner_imgList = [
@@ -93,10 +103,9 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
         //return autoRunLoop
     };
 
-    // todo 左侧移入
+    //  左侧移入
     this.runLeft = function () {
         //alert("left");
-        clearInterval(autoRunLoop);//todo 拆分到onmouseover与onmouseout事件中
 
         for (var i in range(imgList.length)) {
 
@@ -116,7 +125,7 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
         imgBox.src = imgList[Number(index)];
     };
 
-    // todo 右侧移入
+    // 右侧移入
     this.runRight = function () {
         clearInterval(autoRunLoop);//todo 拆分到onmouseover与onmouseout事件中
 
@@ -144,7 +153,7 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
     };
 
 
-    //todo 选择圆点切换图片
+    // 选择圆点切换图片
     this.selectImg = function (event) {
         //console.log(autoRunLoop);
         console.log(event.target.rel);
@@ -155,7 +164,7 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
 
 
     };
-    // todo 运行
+    // 运行
     this.run = function () {
 
         this.createButton();
@@ -163,14 +172,26 @@ function ImgLoop(imgList, buttonBox, imgBox, leftArr, rightArr, time) {
 
         leftArr.onclick = this.runLeft;
         rightArr.onclick = this.runRight;
+        leftArr.onmouseover = function () {
+            clearInterval(autoRunLoop);
+        };
+        leftArr.onmouseout = this.autoRun;
+        rightArr.onmouseover = function () {
+            clearInterval(autoRunLoop);
+        };
+        rightArr.onmouseout = this.autoRun;
         //buttonBox.onclick = this.selectImg;
         for (var i in range(buttons.length)) {
             buttons[i].onmouseover = this.selectImg;
             buttons[i].onmouseout = this.autoRun;
         }
+        imgBox.onmouseover = function () {
+            clearInterval(autoRunLoop);
+        };
+        imgBox.onmouseout = this.autoRun;
+
         //buttonBox.onmouseout = this.autoRun();
         //imgBox.removeEventListener("load", this.autoRun, true);
-
     }
 }
 
@@ -196,7 +217,8 @@ function playAccordion(evt) {
     return null
 }
 
-// todo 学员作品展示
+
+//  学员作品展示
 function workLoop() {
     var loopBoxes = document.getElementById("why_box_work");
     var loopBox = loopBoxes.children[0];
@@ -237,28 +259,63 @@ function workLoop() {
         //        console.log(loops[i].offsetLeft);
         //        loops[i].style.left = _left + "px";
         //    }
-    }, 100)
+    }, 50)
 }
+
+
 // 学员照片遮罩
-function imgMask(){
+function imgMask() {
     var imgBox = document.getElementById("can_content_box");
     var imgs = imgBox.getElementsByTagName("img");
     var frag = document.createDocumentFragment();
 
-    for (var i in range(imgs.length)){
+    for (var i in range(imgs.length)) {
         var mask = document.createElement("div");
-        mask.style.width = imgs[i].width+"px";
-        mask.style.height = imgs[i].height+"px";
-        mask.style.top =  imgs[i].offsetTop+"px";
-        mask.style.left =  imgs[i].offsetLeft+"px";
+        mask.style.width = imgs[i].width + "px";
+        mask.style.height = imgs[i].height + "px";
+        mask.style.top = imgs[i].offsetTop + "px";
+        mask.style.left = imgs[i].offsetLeft + "px";
         mask.className = "_mask";
 
         frag.appendChild(mask);
     }
     imgBox.appendChild(frag);
 }
-function showSign(){
-    var box = document.getElementById("header_sign");
-    console.log(box);
-    box.style.display = "block"
+
+
+function createCourseBlock2(list, box) {
+    //生成课程列表
+
+    box.innerHTML = "";
+
+    console.log(_class);
+
+    for (var i in range(list.length)) {
+
+        var block = document.createElement("div");
+        var _div = document.createElement("div");
+        var _p = document.createElement("p");
+        var _img = document.createElement("img");
+        var _span_1 = document.createElement("span");
+        var _span_2 = document.createElement("span");
+
+        block.className = "_course";
+        _p.innerText = list[i].name;
+        _div.appendChild(_p);
+        _img.src = "static/images/course_line_03.jpg";
+        _span_1.innerText = "评分：" + list[i].grade.toFixed(1);
+        _span_2.innerText = list[i].follow + "人关注";
+
+        block.appendChild(_div);
+        block.appendChild(_img);
+        block.appendChild(_span_1);
+        block.appendChild(_span_2);
+
+        //绑定点击事件 在本地存储写入课程对象 并跳转页面
+        block.onclick = function () {
+            classLink(event);
+        };
+
+        box.appendChild(block);
+    }
 }

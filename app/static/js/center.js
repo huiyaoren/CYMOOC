@@ -3,43 +3,67 @@
  */
 
 window.onload = function () {
+    // 登陆注册
+    headerShow();
+    // 创建标签
     createClassTag(direct_0);
+    // 初始化显示课程
     createCourseData();
     createCourseBlock(_class);
+    createCourseBlock2(_class.slice(0, 5), container_recommend_box);
+    // 设置分页
     SetPage();
     switchPageByIndex(1);
 
-
+    // 方向标签点击
     container_nav_box_direct.onclick = function () {
         changeClassTag(event);
         setTagStyle(container_nav_box_hard.getElementsByTagName("a")[0]);
         selectDirectBlock(event);
         SetPage();
-        container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
-            switchPage(event);
-        };
+        //container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+        //    switchPage(event);
+        //};
+        try{// todo 将 try 内容封装函数
+            // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
+            container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+                switchPage(event);
+            };
+        }catch(e){}
     };
 
+
+    // 分类标签点击
     container_nav_box_class.onclick = function () {
-        setTagStyle(event.target);//todo
+        setTagStyle(event.target);
         setTagStyle(container_nav_box_hard.getElementsByTagName("a")[0]);
         selectClassBlock(event);
         SetPage();
-        container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
-            switchPage(event);
-        };
+        try{// todo 将 try 内容封装函数
+            // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
+            container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+                switchPage(event);
+            };
+        }catch(e){}
+
     };
 
+    // 难度标签点击
     container_nav_box_hard.onclick = function () {
-        setTagStyle(event.target);//todo
+        setTagStyle(event.target);
         selectHardBlock(event);
         SetPage();
-        container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
-            switchPage(event);
-        };
+        try{// todo 将 try 内容封装函数
+            // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
+            container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+                switchPage(event);
+            };
+        }catch(e){}
+
     };
 
 
+    // 翻页按钮点击
     container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
         switchPage(event);
     };
@@ -164,6 +188,11 @@ function createCourseBlock(list) {
         block.appendChild(_img);
         block.appendChild(_span_1);
         block.appendChild(_span_2);
+
+        //绑定点击事件 在本地存储写入课程对象 并跳转页面
+        block.onclick = function () {
+            classLink(event);
+        };
 
         container_show_content.appendChild(block);
         // todo 分页
@@ -398,7 +427,7 @@ function SetPage() {
         // 下一页
         button_after.innerText = "下一页";
         page_box.appendChild(button_after);
-        console.log(page_box);
+        //console.log(page_box);
 
         // 插入文档
         container_show.appendChild(page_box);
@@ -448,14 +477,14 @@ function switchPage(evt) {
             // 点击 下一页
         } else if (evt.target.innerText == "下一页") {
             //todo
-            if (index_0 < buttons.length-2) {
+            if (index_0 < buttons.length - 2) {
                 index_0 = Number(index_0);
                 console.log(index_0 + 1);
 
                 switchPageByIndex(Number(index_0) + 1);
                 buttons[index_0 + 1].style.fontWeight = "900";
             } else {
-                buttons[buttons.length-2].style.fontWeight = "900";
+                buttons[buttons.length - 2].style.fontWeight = "900";
             }
 
             // 点击 数字页码
@@ -466,37 +495,68 @@ function switchPage(evt) {
         }
     }
 }
-//
-//
-//function createCourseBlock(list) {
-//    //todo 生成课程列表
-//    container_show_content.innerHTML = "";
-//
-//    //console.log(_class);
-//
-//    for (var i in range(list.length)) {
-//
-//        var block = document.createElement("div");
-//        var _div = document.createElement("div");
-//        var _p = document.createElement("p");
-//        var _img = document.createElement("img");
-//        var _span_1 = document.createElement("span");
-//        var _span_2 = document.createElement("span");
-//
-//        block.className = "_course";
-//        _p.innerText = list[i].name;
-//        _div.appendChild(_p);
-//        _img.src = "static/images/course_line_03.jpg";
-//        _span_1.innerText = "评分：" + list[i].grade.toFixed(1);
-//        _span_2.innerText = list[i].follow + "人关注";
-//
-//        block.appendChild(_div);
-//        block.appendChild(_img);
-//        block.appendChild(_span_1);
-//        block.appendChild(_span_2);
-//
-//        container_show_content.appendChild(block);
-//        // todo 分页
-//    }
-//
-//}
+
+
+// 推荐课程
+function createCourseBlock2(list, box) {
+    //生成课程列表
+
+    box.innerHTML = "";
+
+    //console.log(_class);
+
+    for (var i in range(list.length)) {
+
+        var block = document.createElement("div");
+        var _div = document.createElement("div");
+        var _p = document.createElement("p");
+        var _img = document.createElement("img");
+        var _span_1 = document.createElement("span");
+        var _span_2 = document.createElement("span");
+
+        block.className = "_course";
+        _p.innerText = list[i].name;
+        _div.appendChild(_p);
+        _img.src = "static/images/course_line_03.jpg";
+        _span_1.innerText = "评分：" + list[i].grade.toFixed(1);
+        _span_2.innerText = list[i].follow + "人关注";
+
+        block.appendChild(_div);
+        block.appendChild(_img);
+        block.appendChild(_span_1);
+        block.appendChild(_span_2);
+
+        //绑定点击事件 在本地存储写入课程对象 并跳转页面
+        block.onclick = function () {
+            classLink(event);
+        };
+
+        box.appendChild(block);
+    }
+
+}
+
+
+// 点击课程 跳转页面
+function classLink(evt) {
+
+    if (evt.target.tagName == "P") {
+
+        // 找到 课程对象
+        var name = evt.target.innerText;
+        for (var i in range(_class.length)) {
+            if (_class[i].name == name) {
+                var classOnCheck = [_class[i]];
+                break;
+            }
+        }
+
+        // 清空本地储存 写入课程对象
+        localStorage.removeItem("classOnCheck");
+        localStorage.classOnCheck = JSON.stringify(classOnCheck);
+        //console.log(localStorage.classOnCheck);
+
+        // 跳转页面
+        window.open("./class.html")
+    }
+}

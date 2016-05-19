@@ -4,13 +4,48 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="static/css/base.css"/>
     <link rel="stylesheet" href="static/css/study.css"/>
+    <script rel="script" src="static/js/base.js"></script>
+    <script rel="script" src="static/js/study.js"></script>
 
     <title></title>
 </head>
 <body>
 <div class="main">
-    <div class="header">
-        <div class="header_box">
+    <div class="header" id="header">
+        <div class="header_sign" id="header_sign">
+            <h1>注册</h1>
+            <form>
+                <label for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
+
+                <input type="text" id="sign_username" placeholder=" 账号（必须填写）">
+                <label for="sign_password1"><span>密码未填写</span></label>
+
+                <input type="password" id="sign_password1" placeholder=" 静态密码（必须填写）">
+                <label for="sign_password2"><span>两次输入密码不正确</span></label>
+
+                <input type="password" id="sign_password2" placeholder=" 确认密码（必须填写）">
+                <label for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
+
+                <input type="text" id="sign_email" placeholder=" 邮箱账号（必须填写）">
+                <label for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
+                <input type="text" id="sign_pin" placeholder=" 验证码（必须填写）">
+                <input type="button" value="注册">
+            </form>
+        </div>
+        <div class="header_login" id="header_login">
+            <h1>登陆</h1>
+            <form>
+                <label for="login_username" id="login_username_label"><span>账号不存在</span></label>
+
+                <input type="text" id="login_username" placeholder="账号">
+                <label for="login_password" id="login_password_label"><span>密码错误</span></label>
+
+                <input type="password" id="login_password" placeholder="密码">
+                <input type="button" id="login_submit" value="登陆">
+                <input type="button" id="login_forget" value="忘记密码">
+            </form>
+        </div>
+        <div class="header_box" id="header_box">
             <div class="_empty"></div>
             <img src="static/images/logo.png">
             <ul>
@@ -18,7 +53,7 @@
                     <a href="index.html">首页</a>
                 </li>
                 <li>
-                    <a href="class.html">课程</a>
+                    <a href="center.html">课程</a>
                 </li>
                 <li>
                     <a href="study.html">学习</a>
@@ -34,23 +69,26 @@
             </ul>
             <form>
                 <input type="text" name="search" placeholder="  请输入关键字">
-                <a></a>
             </form>
-            <a>登陆</a>
-            <a style="border: none">注册</a>
+            <img  class="header_box_search" src="static/images/search.png"/>
+            <a id="header_box_login">登陆</a>
+            <a id="header_box_sign" style="border: none">注册</a>
+            <a id="header_box_user" style="display: none"></a>
+            <a id="header_box_out" style="display: none;border: none">退出</a>
         </div>
     </div>
+
 
     <div class="container">
         <div class="container_left">
             <div class="container_left_user">
                 <div>
                     <div>
-                        <img src="static/images/study/head_01.png"/>
+                        <img id="user_head" src="static/images/study/head_01.png"/>
 
                     </div>
 
-                    <div>
+                    <div id="user_data">
                         <h2>海浪</h2>
 
                         <p>注册日期：2222/22/22</p>
@@ -75,7 +113,7 @@
 
                         <p>
                             金币余额： <br/>
-                            <span>44</span> 币
+                            <span id="user_money">44</span> 币
                         </p>
                     </div>
                 </div>
@@ -203,6 +241,7 @@
     </div>
 
 </div>
+<div class="_cover" id="_cover"></div>
 
 
 </body>
