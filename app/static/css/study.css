@@ -117,7 +117,8 @@
     background: #14598c;
     color: white;
 }
-.container_left_list > h2:hover>a {
+
+.container_left_list > h2:hover > a {
     color: white;
 }
 
@@ -167,27 +168,26 @@
 
 .container_right1_pay_tag > a {
     width: 178px;
-    height: 35px;
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-right: 1px;
 
-    background: #14598c;
     display: inline-block;
     vertical-align: bottom;
-    color: white;
     font-size: .16rem;
-    line-height: 35px;
     text-align: center;
 
 }
 
-.container_right1_pay_tag > a:first-child {
-    height: 30px;
-    background: #dddddd;
-    color: black;
-    line-height: 30px;
+/*.container_right1_pay_tag > a:first-child {*/
+/*height: 30px;*/
+/*background: #dddddd;*/
+/*color: black;*/
+/*line-height: 30px;*/
+/*}*/
+.container_right1_pay_tag > a:first-child,
+.container_right1_pay_tag > a:hover {
 
 }
 
@@ -195,8 +195,11 @@
 ---------------------------------------*/
 .container_right1_pay_box {
     height: 355px;
+    width: 100%;
 
     border: solid 1px #878787;
+
+    position: relative;
 }
 
 .container_right1_pay_box > div:first-child {
@@ -216,6 +219,13 @@
 .container_right1_pay_box > div:first-child > h2:first-child {
     margin-left: 50px;
     margin-right: 185px;
+}
+
+.container_right1_pay_box > div:nth-child(2) {
+    height: 315px;
+    overflow: scroll;
+    overflow-x: hidden;
+
 }
 
 .container_right1_pay_box > div:nth-child(2) > div {
@@ -247,6 +257,8 @@
 }
 
 .container_right1_pay_box > div:nth-child(2) > div > img {
+    width: 62px;
+    height: 62px;
 
     position: absolute;
     top: 9px;
@@ -254,12 +266,20 @@
 }
 
 .container_right1_pay_box > div:nth-child(2) > div > a {
-    margin-right: 75px;
     margin-left: 95px;
+}
+.container_right1_pay_box > div:nth-child(2) > div > a >p{
+    width: 120px;
 }
 
 .container_right1_pay_box > div:nth-child(2) > div > p {
     margin-left: 145px;
+}
+
+.container_right1_pay_box > div:nth-child(3) {
+    position: absolute;
+
+    bottom: 10px;
 }
 
 .container_right1_pay_box > div:nth-child(3) > span {
@@ -270,10 +290,136 @@
     display: inline-block;
 
 }
+
 .container_right1_pay_box > div:nth-child(3) > span:first-child {
     margin-right: 340px;
 }
+
 .container_right1_pay_box > div:nth-child(3) > a {
+    width: 110px;
+    height: 30px;
+
+    border-radius: 5px;
+    margin-left: 525px;
+    margin-top: 5px;
+
+    line-height: 30px;
+    text-align: center;
+    background: #14598c;
+    font-size: .20rem;
+    color: white;
+    display: block;
+}
+
+/*
+---------------------------------------*/
+.container_right1_pay_box2 {
+    height: 355px;
+    width: 100%;
+
+    border: solid 1px #878787;
+
+    position: relative;
+    display: none;
+}
+
+.container_right1_pay_box2 > div:first-child {
+    width: 100%;
+    height: 40px;
+    background: #14598c;
+}
+
+.container_right1_pay_box2 > div:first-child > h2 {
+    margin-left: 70px;
+
+    color: white;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.container_right1_pay_box2 > div:first-child > h2:first-child {
+    margin-left: 50px;
+    margin-right: 185px;
+}
+
+.container_right1_pay_box2 > div:nth-child(2) {
+    height: 240px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.container_right1_pay_box2 > div:nth-child(2) > div {
+    width: 100%;
+    height: 80px;
+
+    border-top: solid 1px white;
+
+    background: #dddddd;
+    cursor: pointer;
+}
+
+.container_right1_pay_box2 > div:nth-child(2) > div:hover {
+    background: #207ec4;
+}
+
+.container_right1_pay_box2 > div:nth-child(2) p {
+    font-size: .16rem;
+}
+
+.container_right1_pay_box2 > div:nth-child(2) > div > * {
+    display: inline-block;
+    line-height: 80px;
+
+}
+
+.container_right1_pay_box2 > div:nth-child(2) > div {
+    position: relative;
+}
+
+.container_right1_pay_box2 > div:nth-child(2) > div > img {
+    width: 62px;
+    height: 62px;
+
+    position: absolute;
+    top: 9px;
+    left: 20px;
+}
+
+
+.container_right1_pay_box2 > div:nth-child(2) > div > a {
+    margin-left: 95px;
+}
+.container_right1_pay_box2 > div:nth-child(2) > div > a >p{
+    width: 120px;
+}
+
+
+
+
+.container_right1_pay_box2 > div:nth-child(2) > div > p {
+    margin-left: 145px;
+}
+
+.container_right1_pay_box2 > div:nth-child(3) {
+    position: absolute;
+
+    bottom: 10px;
+}
+
+.container_right1_pay_box2 > div:nth-child(3) > span {
+    margin-top: 10px;
+    margin-left: 20px;
+
+    font-size: .18rem;
+    display: inline-block;
+
+}
+
+.container_right1_pay_box2 > div:nth-child(3) > span:first-child {
+    margin-right: 340px;
+}
+
+.container_right1_pay_box2 > div:nth-child(3) > a {
     width: 110px;
     height: 30px;
 
@@ -296,11 +442,14 @@
 
     width: 700px;
     height: 195px;
+    text-align: center;
 }
 
 .container_right1_recommend > h2 {
     width: 100%;
     height: 40px;
+
+    margin-bottom: 8px;
 
     background: #14598c;
     line-height: 40px;
@@ -319,17 +468,18 @@
     vertical-align: top;
     text-align: left;
 }
-.container_right2_tag{
+
+.container_right2_tag {
     margin-top: 30px;
 }
-.container_right2_tag >a{
+
+.container_right2_tag > a {
     width: 178px;
     height: 30px;
 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-right: 1px;
-
 
     background: #dddddd;
     color: black;
@@ -341,6 +491,7 @@
 
 }
 
+.container_right2_tag > a:hover,
 .container_right2_tag > a:first-child {
     height: 35px;
 
@@ -358,4 +509,30 @@
 
     position: relative;
     font-size: .14rem;
+}
+
+.container_right2_box > div {
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    margin: 0 0 20px 10px;
+    text-align: left;
+}
+
+.container_right2_box ._course {
+    margin: 20px 5px 0
+}
+
+.container_right2_box ._course img {
+    margin: 0 0 10px 7px;
+
+}
+
+.container_right2_box ._course span {
+    margin-top: 0;
+    height: .2rem;
+    line-height: .2rem;
+    vertical-align: top;
+
 }

@@ -15,21 +15,21 @@
         <div class="header_sign" id="header_sign">
             <h1>注册</h1>
             <form>
-                <label for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
+                <label id="sign_username_label" for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
 
                 <input type="text" id="sign_username" placeholder=" 账号（必须填写）">
-                <label for="sign_password1"><span>密码未填写</span></label>
+                <label id="sign_password1_label"  for="sign_password1"><span>密码未填写</span></label>
 
                 <input type="password" id="sign_password1" placeholder=" 静态密码（必须填写）">
-                <label for="sign_password2"><span>两次输入密码不正确</span></label>
+                <label id="sign_password2_label"  for="sign_password2"><span>两次输入密码不正确</span></label>
 
                 <input type="password" id="sign_password2" placeholder=" 确认密码（必须填写）">
-                <label for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
+                <label id="sign_email_label"  for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
 
                 <input type="text" id="sign_email" placeholder=" 邮箱账号（必须填写）">
-                <label for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
+                <label id="sign_pin_label"  for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
                 <input type="text" id="sign_pin" placeholder=" 验证码（必须填写）">
-                <input type="button" value="注册">
+                <input id="sign_submit" type="button" value="注册">
             </form>
         </div>
         <div class="header_login" id="header_login">
@@ -121,12 +121,12 @@
             <div class="container_left_list">
                 <h2>
                     <img src="static/images/study/class.png">
-                    <a>我的课程</a>
+                    <a id="user_class">我的课程</a>
                 </h2>
 
                 <h2>
                     <img src="static/images/study/order.png">
-                    <a>我的订单</a>
+                    <a id="user_pay">我的订单</a>
                 </h2>
 
                 <h2>
@@ -140,14 +140,14 @@
                 </h2>
             </div>
         </div>
-        <div class="container_right1">
+        <div class="container_right1" id="container_right1">
             <div class="container_right1_pay">
 
                 <div class="container_right1_pay_tag">
-                    <a>已购买</a>
-                    <a>待支付</a>
+                    <a id="tag_paid">已购买</a>
+                    <a id="tag_unpaid">待支付</a>
                 </div>
-                <div class="container_right1_pay_box">
+                <div class="container_right1_pay_box" id="container_right1_pay_box">
                     <div>
                         <h2>物品名称</h2>
 
@@ -157,7 +157,50 @@
 
                         <h2>总计</h2>
                     </div>
+                    <div id="pay_box_1">
+                        <div>
+                            <img src="static/images/study/mark.png">
+                            <a><p>物品名称</p></a>
+
+                            <p>$275,000</p>
+
+                            <p>$275,000</p>
+                        </div>
+                        <div>
+                            <img src="static/images/study/mark.png">
+                            <a><p>物品名称</p></a>
+
+                            <p>$275,000</p>
+
+                            <p>$275,000</p>
+                        </div>
+                        <div>
+                            <img src="static/images/study/mark.png">
+                            <a><p>物品名称</p></a>
+
+                            <p>$275,000</p>
+
+                            <p>$275,000</p>
+                        </div>
+                    </div>
                     <div>
+                        <!--<span>继续购物</span>-->
+                        <!--<span>总计（不含运费）：=$550,000</span>-->
+                        <!--<a>去结算</a>-->
+                    </div>
+
+                </div>
+                <div class="container_right1_pay_box2" id="container_right1_pay_box2">
+                    <div>
+                        <h2>物品名称</h2>
+
+                        <h2>价格</h2>
+
+                        <h2>数量</h2>
+
+                        <h2>总计</h2>
+                    </div>
+                    <div id="pay_box_2">
                         <div>
                             <img src="static/images/study/mark.png">
                             <a><p>物品名称</p></a>
@@ -185,8 +228,8 @@
                     </div>
                     <div>
                         <span>继续购物</span>
-                        <span>总计（不含运费）：=$550,000</span>
-                        <a>去结算</a>
+                        <span id="pay_total">总计（不含运费）：=$550,000</span>
+                        <a id="pay_button">去结算</a>
                     </div>
 
                 </div>
@@ -195,26 +238,27 @@
             </div>
             <div class="container_right1_recommend">
                 <h2>推荐课程</h2>
+                <div id="recommend_box"></div>
             </div>
         </div>
-        <div class="container_right2">
+        <div class="container_right2" id="container_right2">
             <div class="container_right2_tag">
                 <a>在学</a>
                 <a>学完</a>
                 <a>想学</a>
             </div>
             <div class="container_right2_box">
-                <div></div>
-                <div class="_button_page">
-                    <a>上一页</a>
-                    <a>1</a>
-                    <a>2</a>
-                    <a>3</a>
-                    <a>4</a>
-                    <a>5</a>
-                    <a>6</a>
-                    <a>下一页</a>
-                </div>
+                <div id="learning_box"></div>
+                <!--<div class="_button_page">-->
+                    <!--<a>上一页</a>-->
+                    <!--<a>1</a>-->
+                    <!--<a>2</a>-->
+                    <!--<a>3</a>-->
+                    <!--<a>4</a>-->
+                    <!--<a>5</a>-->
+                    <!--<a>6</a>-->
+                    <!--<a>下一页</a>-->
+                <!--</div>-->
             </div>
         </div>
     </div>

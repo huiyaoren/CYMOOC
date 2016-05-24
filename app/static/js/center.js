@@ -24,12 +24,7 @@ window.onload = function () {
         //container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
         //    switchPage(event);
         //};
-        try{// todo 将 try 内容封装函数
-            // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
-            container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
-                switchPage(event);
-            };
-        }catch(e){}
+
     };
 
 
@@ -39,12 +34,7 @@ window.onload = function () {
         setTagStyle(container_nav_box_hard.getElementsByTagName("a")[0]);
         selectClassBlock(event);
         SetPage();
-        try{// todo 将 try 内容封装函数
-            // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
-            container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
-                switchPage(event);
-            };
-        }catch(e){}
+
 
     };
 
@@ -53,12 +43,7 @@ window.onload = function () {
         setTagStyle(event.target);
         selectHardBlock(event);
         SetPage();
-        try{// todo 将 try 内容封装函数
-            // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
-            container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
-                switchPage(event);
-            };
-        }catch(e){}
+
 
     };
 
@@ -400,7 +385,7 @@ function SetPage() {
     if (courses.length > 15) {
 
         // 计算页数
-        var page = (courses.length / 15).toFixed(0);
+        var page = (courses.length % 15) == 0 ? (courses.length / 15) : parseInt(courses.length / 15 + 1);
 
         // 创建 翻页按钮
         var page_box = document.createElement("div");
@@ -432,6 +417,15 @@ function SetPage() {
         // 插入文档
         container_show.appendChild(page_box);
     }
+
+    // 给按钮绑定事件
+    try{// todo 将 try 内容封装函数
+        // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
+        container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
+            switchPage(event);
+        };
+    }catch(e){}
+
 }
 
 
@@ -439,8 +433,8 @@ function SetPage() {
 function switchPageByIndex(index) {
     var courses = container_show_content.getElementsByClassName("_course");
 
-
     var top = -(index - 1) * 510 + "px";
+
     for (var i in range(courses.length)) {
         courses[i].style.position = "relative";
         courses[i].style.top = top;
@@ -546,7 +540,7 @@ function classLink(evt) {
         var name = evt.target.innerText;
         for (var i in range(_class.length)) {
             if (_class[i].name == name) {
-                var classOnCheck = [_class[i]];
+                var classOnCheck = _class[i];
                 break;
             }
         }

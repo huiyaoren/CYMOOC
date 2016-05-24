@@ -15,21 +15,21 @@
         <div class="header_sign" id="header_sign">
             <h1>注册</h1>
             <form>
-                <label for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
+                <label id="sign_username_label" for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
 
                 <input type="text" id="sign_username" placeholder=" 账号（必须填写）">
-                <label for="sign_password1"><span>密码未填写</span></label>
+                <label id="sign_password1_label"  for="sign_password1"><span>密码未填写</span></label>
 
                 <input type="password" id="sign_password1" placeholder=" 静态密码（必须填写）">
-                <label for="sign_password2"><span>两次输入密码不正确</span></label>
+                <label id="sign_password2_label"  for="sign_password2"><span>两次输入密码不正确</span></label>
 
                 <input type="password" id="sign_password2" placeholder=" 确认密码（必须填写）">
-                <label for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
+                <label id="sign_email_label"  for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
 
                 <input type="text" id="sign_email" placeholder=" 邮箱账号（必须填写）">
-                <label for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
+                <label id="sign_pin_label"  for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
                 <input type="text" id="sign_pin" placeholder=" 验证码（必须填写）">
-                <input type="button" value="注册">
+                <input id="sign_submit" type="button" value="注册">
             </form>
         </div>
         <div class="header_login" id="header_login">
@@ -79,26 +79,26 @@
     </div>
 
     <div class="container _box">
-        <div class="container_nav">
+        <div class="container_nav" id="container_nav">
             <h2>设计-创作 > 设计软件 > Photoshop > photoshop PS真正零基础到精通</h2>
         </div>
-        <div class="container_title">
-            <h1> photoshop PS真正零基础到精通</h1>
+        <div class="container_title" id="container_title">
+            <h1 id="page_title"> photoshop PS真正零基础到精通</h1>
 
             <h2>讲师提醒</h2>
 
-            <div class="container_title_user">
+            <div class="container_title_user" id="container_title_user">
                 <img src="static/images/class/head_01.png"/>
                 <a>人物名称</a>
             </div>
             <div class="container_title_rest">
                 <div class="_empty"></div>
-                <h3>难度：初级</h3>
+                <h3  id="page_hard">难度：初级</h3>
 
                 <h3>时间：320分钟</h3>
 
                 <h3>学习：7825</h3>
-                <a>开始学习</a>
+                <a id="pay_or_learn">开始学习</a>
 
                 <img src="static/images/class/share_0.png">
 
@@ -184,7 +184,7 @@
         </div>
         <div class="container_recommend">
             <h2>推荐课程</h2>
-            <div class="container_recommend_box"></div>
+            <div class="container_recommend_box" id="container_recommend_box"></div>
         </div>
     </div>
 

@@ -100,7 +100,7 @@ ul {
     width: 155px;
     height: 130px;
 
-    border: solid 1px #4f627e;
+    border: solid 1px #787878   ;
     margin: 19px;
 
     display: inline-block;
@@ -140,7 +140,7 @@ ul {
     width: 140px;
 
     text-align: center;
-    margin: 0 0 0 7px;
+    margin: 0 auto;
 }
 
 ._course span {
@@ -265,12 +265,12 @@ ul {
 
 .header_sign {
     width: 50vw;
-    height: 70vh;
+    height: 60vh;
 
     border: solid 1px black;
 
     position: fixed;
-    top: 15vh;
+    top: 20vh;
     left: 25vw;
     z-index: 99;
 

@@ -283,39 +283,3 @@ function imgMask() {
 }
 
 
-function createCourseBlock2(list, box) {
-    //生成课程列表
-
-    box.innerHTML = "";
-
-    console.log(_class);
-
-    for (var i in range(list.length)) {
-
-        var block = document.createElement("div");
-        var _div = document.createElement("div");
-        var _p = document.createElement("p");
-        var _img = document.createElement("img");
-        var _span_1 = document.createElement("span");
-        var _span_2 = document.createElement("span");
-
-        block.className = "_course";
-        _p.innerText = list[i].name;
-        _div.appendChild(_p);
-        _img.src = "static/images/course_line_03.jpg";
-        _span_1.innerText = "评分：" + list[i].grade.toFixed(1);
-        _span_2.innerText = list[i].follow + "人关注";
-
-        block.appendChild(_div);
-        block.appendChild(_img);
-        block.appendChild(_span_1);
-        block.appendChild(_span_2);
-
-        //绑定点击事件 在本地存储写入课程对象 并跳转页面
-        block.onclick = function () {
-            classLink(event);
-        };
-
-        box.appendChild(block);
-    }
-}

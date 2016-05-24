@@ -64,10 +64,11 @@
     margin-right: 25px;
 }
 
-.container_nav_box > div > ul > li > a{
+.container_nav_box > div > ul > li > a {
     padding: 2px 5px;
 
 }
+
 .container_nav_box > div > ul > li > a:hover,
 .container_nav_box > div > ul > li:first-child > a {
     color: white;
@@ -101,10 +102,24 @@
     text-align: left;
     position: relative;
 }
+
 .container_show_content {
     width: 100%;
-    height: 520px;
+    max-height: 520px;
     overflow: hidden;
+
+}
+
+.container_show_content ._course img {
+    margin: 0 0 10px 7px;
+
+}
+
+.container_show_content ._course span {
+    margin-top: 0;
+    height: .2rem;
+    line-height: .2rem;
+    vertical-align: top;
 
 }
 

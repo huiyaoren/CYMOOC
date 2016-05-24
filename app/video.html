@@ -16,21 +16,21 @@
         <div class="header_sign" id="header_sign">
             <h1>注册</h1>
             <form>
-                <label for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
+                <label id="sign_username_label" for="sign_username"><span>4~16位数字或字母，首位必须为字母</span></label>
 
                 <input type="text" id="sign_username" placeholder=" 账号（必须填写）">
-                <label for="sign_password1"><span>密码未填写</span></label>
+                <label id="sign_password1_label"  for="sign_password1"><span>密码未填写</span></label>
 
                 <input type="password" id="sign_password1" placeholder=" 静态密码（必须填写）">
-                <label for="sign_password2"><span>两次输入密码不正确</span></label>
+                <label id="sign_password2_label"  for="sign_password2"><span>两次输入密码不正确</span></label>
 
                 <input type="password" id="sign_password2" placeholder=" 确认密码（必须填写）">
-                <label for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
+                <label id="sign_email_label"  for="sign_email"><span>邮箱账号格式不正确，请重新填写</span></label>
 
                 <input type="text" id="sign_email" placeholder=" 邮箱账号（必须填写）">
-                <label for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
+                <label id="sign_pin_label"  for="sign_pin"><span>请填写验证码，看不清请刷新</span></label>
                 <input type="text" id="sign_pin" placeholder=" 验证码（必须填写）">
-                <input type="button" value="注册">
+                <input id="sign_submit" type="button" value="注册">
             </form>
         </div>
         <div class="header_login" id="header_login">
@@ -136,14 +136,14 @@
                     <a>问答</a>
                     <a>问答</a>
                 </div>
-                <div class="container_content_comment_detail">
+                <div class="container_content_comment_detail" id="container_content_comment_detail">
                     <div>
 
                         <div class="_empty"></div>
-                        <textarea placeholder="点击进行编辑"></textarea>
-                        <a>发表</a>
+                        <textarea id="comment_box" placeholder="点击进行编辑" maxlength="73"></textarea>
+                        <a id="comment_submit">发表</a>
                     </div>
-                    <div>
+                    <div id="comment_content">
                         <div>
                             <img src="static/images/video/head_01.png">
                             <h2>人物名称</h2>
@@ -181,7 +181,7 @@
                             <span><a></a>[250]<a></a>[88]</span>
                         </div>
                     </div>
-                    <div class="_button_page">
+                    <div id="button_box" class="_button_page">
 
                         <a>上一页</a>
                         <a>1</a>
@@ -236,6 +236,7 @@
         </div>
     </div>
 </div>
-ccccc
+<div class="_cover" id="_cover"></div>
+
 </body>
 </html>

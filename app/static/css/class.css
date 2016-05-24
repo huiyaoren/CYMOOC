@@ -56,6 +56,10 @@
     display: inline-block;
 
 }
+.container_title_user img{
+    width: 58px;
+    height: 64px;
+}
 
 .container_title_rest {
     height: 48px;
@@ -278,7 +282,7 @@
     width: 100%;
     height: 55px;
 
-    margin-bottom: 38px;
+    margin-bottom: 19px;
     border: solid 1px #878787;
 
     color: white;
@@ -287,8 +291,6 @@
 }
 .container_recommend_box {
     width: 100%;
-    height: 130px;
 
-    margin-bottom: 38px;
-    border: solid 1px #878787;
+    margin-bottom: 19px;
 }
