@@ -414,6 +414,9 @@
     display: inline-block;
 
 }
+.container_right1_pay_box2 > div:nth-child(3) > span>a {
+    color: black;
+}
 
 .container_right1_pay_box2 > div:nth-child(3) > span:first-child {
     margin-right: 340px;

@@ -10,8 +10,10 @@ if (!localStorage.userOnLine) {
 
 
 window.onload = function () {
+
     // 登陆注册
     headerShow();
+
     // 载入用户信息
     loadUserData();
 
@@ -43,14 +45,14 @@ window.onload = function () {
     };
 
 
-    // todo 点击改变 tag 样式
+    //  点击改变 tag 样式
     tag_paid.onclick = function () {
         tag_paid.className = "_tag_choose";
         tag_unpaid.className = "_tag";
         container_right1_pay_box2.style.display = "none";
         container_right1_pay_box.style.display = "inline-block"
     };
-    // todo 点击改变 tag 样式
+    //  点击改变 tag 样式
     tag_unpaid.onclick = function () {
         tag_unpaid.className = "_tag_choose";
         tag_paid.className = "_tag";
@@ -123,11 +125,12 @@ function loadPayOrder() {
 }
 
 
-// 结算 todo 英语水平堪忧 本函数内变量名将 paids 和 paied 混用
+// 结算 todo  函数内把变量名 paids 和 paied 混用
 function takeMyMoney() {
     var userOnLine = JSON.parse(localStorage.userOnLine);
     var unpaids = JSON.parse(userOnLine.unpaied);
     var paids = JSON.parse(userOnLine.paied);
+
 
     // 待支付课程对象 向 已支付 移动
     paids = paids.concat(unpaids);
@@ -139,6 +142,9 @@ function takeMyMoney() {
 
     localStorage.userOnLine = JSON.stringify(userOnLine);
     console.log(JSON.parse(localStorage.userOnLine));
+
+    //
+    alert("购买成功");
 
     // 重新载入订单数据
     loadPayOrder();

@@ -56,7 +56,8 @@
     display: inline-block;
 
 }
-.container_title_user img{
+
+.container_title_user img {
     width: 58px;
     height: 64px;
 }
@@ -265,6 +266,7 @@
     background-size: contain;
     display: inline-block;
 }
+
 .container_content_right_news > div > p {
     margin-top: 15px;
 
@@ -278,7 +280,8 @@
 .container_recommend {
     width: 100%;
 }
-.container_recommend >h2{
+
+.container_recommend > h2 {
     width: 100%;
     height: 55px;
 
@@ -289,6 +292,7 @@
     background: #14598c;
     line-height: 55px;
 }
+
 .container_recommend_box {
     width: 100%;
 

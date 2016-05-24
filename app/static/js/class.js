@@ -12,7 +12,7 @@ window.onload = function () {
     headerShow();
     loadCourseData();
 
-    createCourseBlock2(_class.slice(0,5), container_recommend_box)
+    createCourseBlock2(_class.slice(0, 5), container_recommend_box)
 };
 
 function loadCourseData() {
@@ -24,7 +24,7 @@ function loadCourseData() {
     //console.log(_user[0]);
 
     // 载入用户与课程信息
-    container_nav.innerHTML = "<h2>" + classOnCheck.direct + " > " + classOnCheck.class + " > " + classOnCheck.hard + " > " + classOnCheck.name;
+    container_nav.innerHTML = "<h2>" + classOnCheck.direct + " > " + classOnCheck.class + " > " + classOnCheck.hard + " > " + classOnCheck.name + "<h2>";
     container_title_user.getElementsByTagName("img")[0].src = userOnLine.head;
     container_title_user.getElementsByTagName("a")[0].innerText = userOnLine.username;
 
@@ -54,8 +54,8 @@ function loadCourseData() {
             var unpaid = JSON.parse(userOnLine.unpaied);
 
             // 判断订单是否重复
-            for (var i in range(unpaid.length)){
-                if (unpaid[i].name == classOnCheck.name){
+            for (var i in range(unpaid.length)) {
+                if (unpaid[i].name == classOnCheck.name) {
                     localStorage.userWannaPay = "true";
                     alert("已加入订单");
                     window.location = "study.html";

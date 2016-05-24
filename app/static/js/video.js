@@ -13,15 +13,16 @@ window.onload = function () {
     headerShow();
 
     // todo 载入章节
+    loadSession();
 
 
     // 评论分页
-    SetPage_0( comment_content, 5, 620, button_box);
+    SetPage_0(comment_content, 5, 620, button_box);
     comment_submit.onclick = function () {
         // 评论
         userComment();
         // 分页
-        SetPage_0( comment_content, 5, 620, button_box);
+        SetPage_0(comment_content, 5, 620, button_box);
     };
 };
 
@@ -60,7 +61,6 @@ function userComment() {
 
 
 // 分页
-
 function switchPageByIndex_0(index, height, content) {
     var top = -(index - 1) * height + "px";
     console.log(content);
@@ -70,7 +70,6 @@ function switchPageByIndex_0(index, height, content) {
         contents[i].style.top = top;
     }
 }
-
 function switchPage_0(evt, buttonBox, content, height) {
     //todo
     if (evt.target.tagName == "A") {
@@ -91,7 +90,7 @@ function switchPage_0(evt, buttonBox, content, height) {
             if (index_0 > 1) {
                 //console.log(index_0);
 
-                switchPageByIndex_0(Number(index_0) - 1,height,content);
+                switchPageByIndex_0(Number(index_0) - 1, height, content);
                 buttons[index_0 - 1].style.fontWeight = "900";
             } else {
                 buttons[1].style.fontWeight = "900";
@@ -104,7 +103,7 @@ function switchPage_0(evt, buttonBox, content, height) {
                 index_0 = Number(index_0);
                 console.log(index_0 + 1);
 
-                switchPageByIndex_0(Number(index_0) + 1,height,content);
+                switchPageByIndex_0(Number(index_0) + 1, height, content);
                 buttons[index_0 + 1].style.fontWeight = "900";
             } else {
                 buttons[buttons.length - 2].style.fontWeight = "900";
@@ -113,12 +112,11 @@ function switchPage_0(evt, buttonBox, content, height) {
             // 点击 数字页码
         } else {
             var index = Number(evt.target.innerText);
-            switchPageByIndex_0(index,height,content);
+            switchPageByIndex_0(index, height, content);
             evt.target.style.fontWeight = "900";
         }
     }
 }
-
 function SetPage_0(content, num, height, buttonBox) {
 
 
@@ -172,5 +170,27 @@ function SetPage_0(content, num, height, buttonBox) {
             switchPage_0(event, buttonBox, content, height);
         };
     } catch (e) {
+    }
+}
+
+
+// todo 章节
+function loadSession() {
+
+    SessionName = ["一", "二", "三"];
+    session_box.innerHTML = "";
+
+    for (var i in SessionName) {
+
+        var div = document.createElement("div");
+        var h3 = document.createElement("h3");
+        var p = document.createElement("p");
+
+        h3.innerText = "第" + SessionName[i] + "章";
+        p.innerHTML = "主讲人：李林老师 李林老师 <span></span>213,123,222";
+        div.appendChild(h3);
+        div.appendChild(p);
+        console.log(div);
+        session_box.appendChild(div)
     }
 }

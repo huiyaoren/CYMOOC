@@ -2,6 +2,7 @@
  * Created by wslsh on 2016/5/16.
  */
 
+
 var _direct = [
     "前端开发",
     "后端开发",
@@ -10,11 +11,13 @@ var _direct = [
     "数据处理"
 ];
 
+
 var name_1 = [
     "HTML/CSS", "JavaScript", "CSS3", "HTML5", "jQuery", "AngularJS", "Node.js", "Bootstrap", "Webapp",
     "前端工具", "Php", "JAVA", "Linux", "Python", "C语言", "C++", "Go", "C#", "Android", "iOS", "Unity3D", "Coco2d-x", "Premiere",
     "MongoDB", "云计算", "Oracle", "大数据", "SQL Server", "PhotoShop", "Maya"
 ];
+
 
 var name_2 = [
     "基础", "强化", "深入"
@@ -53,11 +56,13 @@ var _user = [];
 
 // 创建用户对象
 function createUserData() {
+    // 避免重复创建 覆盖数据
+    if(!localStorage.userData){
+        _user[0] = new UserData("admin", "admin", "admin@sina.com");
+        _user[1] = new UserData("admin", "admin", "admin@sina.com");
 
-    _user[0] = new UserData("admin", "admin", "admin@sina.com");
-    _user[1] = new UserData("admin", "admin", "admin@sina.com");
-
-    localStorage.userData = JSON.stringify(_user);
+        localStorage.userData = JSON.stringify(_user);
+    }
 }
 
 
@@ -392,11 +397,10 @@ function userSign() {
 
 //
 function createCourseBlock2(list, box) {
-    //生成课程列表
 
+    //生成课程列表
     box.innerHTML = "";
 
-    //console.log(_class);
 
     for (var i in range(list.length)) {
 

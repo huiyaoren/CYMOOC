@@ -419,12 +419,13 @@ function SetPage() {
     }
 
     // 给按钮绑定事件
-    try{// todo 将 try 内容封装函数
+    try {// todo 将 try 内容封装函数
         // 有可能课程数量未满一页 不创建翻页按钮 导致事件绑定失败
         container_show_button.onclick = function () {     //container_show_button 由 SetPage() 创建
             switchPage(event);
         };
-    }catch(e){}
+    } catch (e) {
+    }
 
 }
 

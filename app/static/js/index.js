@@ -27,6 +27,7 @@ window.onload = function () {
 };
 
 
+// 轮播图图片列表
 var banner_imgList = [
     "static/images/banner0.png",
     "static/images/banner1.png",
